@@ -70,14 +70,14 @@ class RandomWordsState extends State<RandomWords> {
             // ...then generate 10 more and add them to the suggestions list.
             _suggestions.addAll(generateWordPairs().take(10));
           }
-          return _buildRow(_suggestions[index]);
+          return _buildRow(_suggestions[index],i);
         }
     );
   }
-  Widget _buildRow(WordPair pair) {
+  Widget _buildRow(WordPair pair, int y) {
     return new ListTile(
       title: new Text(
-        pair.asPascalCase,
+        pair.asPascalCase+" - "+y.toString(),
         style: _biggerFont,
       ),
     );
